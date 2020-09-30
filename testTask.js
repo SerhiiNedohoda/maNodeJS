@@ -13,28 +13,42 @@ const input = [
     {"type": "hat", "color": "red", "quantity": 1, "price": "$6"},
     {"type": "socks", "color": "blue", "priceForPair": "$6"}
 ];
+let totalAmount = 0;
 let socksQuantity = 0;
 let redHatQuantity = 0;
 let red = 0, green = 0, blue = 0;
 
+function getPrice(inputObj) {
+    var price = 0;
+    price = inputObj.price != undefined ? parseInt(inputObj.price.replace(/\$/, '')) : parseInt(inputObj.priceForPair.replace(/\$/, ''));
+
+    return price;
+}
+
 function calculateSocks(inputData) {
 
     inputData.forEach(function(obj) {
-        if (obj.type == "socks" && obj.quantity != undefined) { socksQuantity = socksQuantity + obj.quantity};
+        if (obj.type == "socks" && obj.quantity != undefined) {
+            socksQuantity = socksQuantity + obj.quantity
+            totalAmount = totalAmount + getPrice(obj) * obj.quantity;
+        };
     });
-
-    console.log("Socks - " + socksQuantity);
+    
+    console.log("Socks - " + socksQuantity + ", Total amount: " + totalAmount + "$");
 }
 
 calculateSocks(input);
 
 function calculateRedHat(inputData) {
-
+    
     inputData.forEach(function(obj) {
-        if (obj.type == "hat" && obj.color == "red") { redHatQuantity = redHatQuantity + obj.quantity};
+        if (obj.type == "hat" && obj.color == "red") { 
+            redHatQuantity = redHatQuantity + obj.quantity;
+            totalAmount = totalAmount + getPrice(obj) * obj.quantity;
+        };
     });
 
-    console.log("Red Hats - " + redHatQuantity);
+    console.log("Red Hats - " + redHatQuantity + ", Total amount: " + totalAmount + "$");
 }
 
 calculateRedHat(input);
