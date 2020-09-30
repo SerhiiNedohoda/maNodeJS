@@ -17,12 +17,32 @@ let socksQuantity = 0;
 let redHatQuantity = 0;
 let red = 0, green = 0, blue = 0;
 
+function calculateSocks(inputData) {
+
+    inputData.forEach(function(obj) {
+        if (obj.type == "socks" && obj.quantity != undefined) { socksQuantity = socksQuantity + obj.quantity};
+    });
+
+    console.log("Socks - " + socksQuantity);
+}
+
+calculateSocks(input);
+
+function calculateRedHat(inputData) {
+
+    inputData.forEach(function(obj) {
+        if (obj.type == "hat" && obj.color == "red") { redHatQuantity = redHatQuantity + obj.quantity};
+    });
+
+    console.log("Red Hats - " + redHatQuantity);
+}
+
+calculateRedHat(input);
+
 for (var i = 0; i < input.length; i++) {
-    let obj = input[i];
+    var obj = input[i];
 
     if (obj.type == "socks" && obj.quantity != undefined) { socksQuantity = socksQuantity + obj.quantity};
-
-    if (obj.type == "hat" && obj.color == "red") { redHatQuantity = redHatQuantity + obj.quantity}
 
     if (obj.color = "red") { red = red + (obj.price != undefined ? parseInt(obj.price.replace(/\$/, '')) 
                                                                : parseInt(obj.priceForPair.replace(/\$/, '')))};
@@ -32,8 +52,8 @@ for (var i = 0; i < input.length; i++) {
                                                                     : parseInt(obj.priceForPair.replace(/\$/, '')))};
 }
 
-console.log("Socks - " + socksQuantity + "\nRed Hats - " + redHatQuantity + 
-            "\nRed - " + red + "$, Green - " + green + "$, Blue - " + blue + "$");
+// console.log("Socks - " + socksQuantity + "\nRed Hats - " + redHatQuantity + 
+//             "\nRed - " + red + "$, Green - " + green + "$, Blue - " + blue + "$");
 
 
 
