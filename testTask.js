@@ -34,10 +34,8 @@ function calculateSocks(inputData) {
         };
     });
     
-    console.log("Socks - " + socksQuantity + ", Total amount: " + totalAmount + "$");
+    console.log("Socks - " + socksQuantity + ", Total price: " + totalAmount + "$");
 }
-
-calculateSocks(input);
 
 function calculateRedHat(inputData) {
     
@@ -47,27 +45,21 @@ function calculateRedHat(inputData) {
             totalAmount = totalAmount + getPrice(obj) * obj.quantity;
         };
     });
-
-    console.log("Red Hats - " + redHatQuantity + ", Total amount: " + totalAmount + "$");
+    
+    console.log("Red Hats - " + redHatQuantity + ", Total price: " + totalAmount + "$");
 }
 
+function calculateRGB(inputData) {
+    
+    inputData.forEach(function(obj) {
+        if (obj.color = "red" && obj.quantity != undefined) { red = red + getPrice(obj) * obj.quantity};
+        if (obj.color = "green" && obj.quantity != undefined) { green = green + getPrice(obj) * obj.quantity};
+        if (obj.color = "blue" && obj.quantity != undefined) { blue = blue + getPrice(obj) * obj.quantity};
+    });
+    
+    console.log("Red - " + red + "$, Green - " + green + "$, Blue - " + blue + "$");
+}
+
+calculateSocks(input);
 calculateRedHat(input);
-
-for (var i = 0; i < input.length; i++) {
-    var obj = input[i];
-
-    if (obj.type == "socks" && obj.quantity != undefined) { socksQuantity = socksQuantity + obj.quantity};
-
-    if (obj.color = "red") { red = red + (obj.price != undefined ? parseInt(obj.price.replace(/\$/, '')) 
-                                                               : parseInt(obj.priceForPair.replace(/\$/, '')))};
-    if (obj.color = "green") { green = green + (obj.price != undefined ? parseInt(obj.price.replace(/\$/, '')) 
-                                                                      : parseInt(obj.priceForPair.replace(/\$/, '')))};
-    if (obj.color = "blue") { blue = blue + (obj.price != undefined ? parseInt(obj.price.replace(/\$/, '')) 
-                                                                    : parseInt(obj.priceForPair.replace(/\$/, '')))};
-}
-
-// console.log("Socks - " + socksQuantity + "\nRed Hats - " + redHatQuantity + 
-//             "\nRed - " + red + "$, Green - " + green + "$, Blue - " + blue + "$");
-
-
-
+calculateRGB(input);
