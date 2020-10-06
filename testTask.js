@@ -1,4 +1,4 @@
-const input = [
+const GOODS = [
     {"type": "socks", "color": "red", "quantity": 10, "priceForPair": "$3"},
     {"type": "socks", "color": "green", "quantity": 5, "priceForPair": "$10"},
     {"type": "socks", "color": "blue", "quantity": 8, "priceForPair": "$6"},
@@ -13,13 +13,23 @@ const input = [
     {"type": "hat", "color": "red", "quantity": 1, "price": "$6"},
     {"type": "socks", "color": "blue", "priceForPair": "$6"}
 ];
-let totalAmount = 0;
+let totalPrice = 0;
 let socksQuantity = 0;
 let redHatQuantity = 0;
 let red = 0, green = 0, blue = 0;
 
+function getTotalPrice(inputGoods) {
+
+    inputGoods.forEach((item) => {
+        totalPrice += parseInt((item.price || item.priceForPair).replace(/\$/, '')) * (item.quantity || 1);
+    })
+    return totalPrice;
+}
+
+console.log("Result of total price calculation: " + getTotalPrice(GOODS) + "$");
+
 function getPrice(inputObj) {
-    var price = 0;
+    let price = 0;
     price = inputObj.price != undefined ? parseInt(inputObj.price.replace(/\$/, '')) : parseInt(inputObj.priceForPair.replace(/\$/, ''));
 
     return price;
@@ -27,7 +37,7 @@ function getPrice(inputObj) {
 
 function calculateSocks(inputData) {
 
-    inputData.forEach(function(obj) {
+    inputData.forEach((obj) => {
         if (obj.type == "socks" && obj.quantity != undefined) {
             socksQuantity = socksQuantity + obj.quantity
             totalAmount = totalAmount + getPrice(obj) * obj.quantity;
@@ -39,7 +49,7 @@ function calculateSocks(inputData) {
 
 function calculateRedHat(inputData) {
     
-    inputData.forEach(function(obj) {
+    inputData.forEach((obj) => {
         if (obj.type == "hat" && obj.color == "red") { 
             redHatQuantity = redHatQuantity + obj.quantity;
             totalAmount = totalAmount + getPrice(obj) * obj.quantity;
