@@ -1,7 +1,7 @@
 # maNodeJS
 
 <details>
-<summary>** Test Task **</summary>
+<summary><b> Test Task </b></summary>
 <p>
 Hi!
 Here is your test task for MA Node.js course. It's not very complicated, but may be a bit tricky. It only tests your basic knowledge of JavaScript language that is needed for completing our course successfully.
@@ -37,7 +37,7 @@ Completed tast should be uploaded to github as your own repository. Please inser
 </details>
 
 <details>
-<summary>** Homework1 **</summary>
+<summary><b> Homework1 </b></summary>
 <p>
 Ось така структура повинна бути у вашої homework-01
 
@@ -74,14 +74,14 @@ task3.js Створити функцію, яка прийматиме на вх�
 </details>
 
 <details>
-<summary>** Homework2 **</summary>
+<summary><b> Homework2 </b></summary>
 <p>
 
 </p>
 </details>
 
 <details>
-<summary>** Homework3 **</summary>
+<summary><b> Homework3 </b></summary>
 <p>
 
 </p>
