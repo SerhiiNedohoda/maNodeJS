@@ -4,15 +4,11 @@
 // Заекспортити цю функцію через module.exports.
 
 const filterArray = (arr, key, value) => {
-    const filteredArray = [];
-
-    arr.forEach((item) => {
-        if (item[key] === value) {
-            filteredArray.push(item);
-        }
+    const newArr = arr.filter((item) => {
+        return item[key] === value;
     });
 
-    return filteredArray;
+    return newArr;
 };
 
 module.exports.filterArray = filterArray;
