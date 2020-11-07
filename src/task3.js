@@ -2,3 +2,10 @@
 // і повертатиме модифікований масив, що приводить кожний запис товару до єдиного формату,
 // тобто кожен з елементів масиву має мати однакову кількість і назви всіх полів.
 // Заекспортити цю функцію через module.exports.
+const modifyArray = (arr) => {
+    let modifiedArr = [];
+
+    return modifiedArr;
+};
+
+module.export.modifyArray = modifyArray;

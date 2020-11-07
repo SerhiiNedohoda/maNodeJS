@@ -24,7 +24,7 @@ const GOODS = [
 // let green = 0;
 // let blue = 0;
 
-task1.filterArray(GOODS, 'type', 'hat');
+console.log(task1.filterArray(GOODS, 'type', 'hat'));
 task2(GOODS);
 
 // function getTotalPrice(inputGoods) {
