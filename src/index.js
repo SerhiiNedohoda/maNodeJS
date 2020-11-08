@@ -1,5 +1,6 @@
 const task1 = require('./task1');
 const task2 = require('./task2');
+const task3 = require('./task3');
 
 const GOODS = [
     { type: 'socks', color: 'red', quantity: 10, priceForPair: '$3' },
@@ -26,6 +27,7 @@ const GOODS = [
 
 console.log(task1.filterArray(GOODS, 'type', 'hat'));
 task2(GOODS);
+task3.modifyArray(GOODS);
 
 // function getTotalPrice(inputGoods) {
 //     inputGoods.forEach((item) => {

@@ -3,9 +3,19 @@
 // тобто кожен з елементів масиву має мати однакову кількість і назви всіх полів.
 // Заекспортити цю функцію через module.exports.
 const modifyArray = (arr) => {
+    let allKeys = [];
     let modifiedArr = [];
+
+    for (const item of arr) {
+        Object.keys(item).forEach((element) => {
+            const newArr = element.filter((item) => {
+                return item[key] === value;
+            });
+        });
+        console.log(Object.keys(item));
+    }
 
     return modifiedArr;
 };
 
-module.export.modifyArray = modifyArray;
+module.exports.modifyArray = modifyArray;
