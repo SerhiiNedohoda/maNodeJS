@@ -1,6 +1,8 @@
 // task2.js Створити функцію, яка прийматиме на вхід масив даних формату тестового завдання,
 // і повертатиме запис товару з найбільшою вартістю, враховуючи кількість товарів в запису.
 // Заекспортити виклик цієї функції через module.exports.
+const goods = require('../../goods.json');
+
 const getMaxPrice = (arr) => {
     let maxPrice = 0;
     let totalPrice = 0;
@@ -13,10 +15,10 @@ const getMaxPrice = (arr) => {
 
         if (maxPrice < totalPrice) {
             maxPrice = totalPrice;
-            itemWithMaxPrice = `${item.color} ${item.type}`;
+            itemWithMaxPrice = `Item "${item.color} ${item.type}" has the max price: ${maxPrice}`;
         }
     });
-    console.info(`Item "${itemWithMaxPrice}" has the max price: ${maxPrice}$`);
+    return itemWithMaxPrice;
 };
 
-module.exports = getMaxPrice;
+module.exports = getMaxPrice(goods.thinks);
