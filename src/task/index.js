@@ -3,10 +3,6 @@ const task1 = require('./task1');
 const task2 = require('./task2');
 const task3 = require('./task3');
 
-// console.log(task1.filterArray(GOODS, 'type', 'hat'));
-// task2(GOODS);
-// task3.modifyArray(GOODS);
-
 const tasks = {
     task1: task1,
     task2: task2,
