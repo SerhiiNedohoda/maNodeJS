@@ -12,4 +12,4 @@ function boot(arr, key, value) {
     console.log(secondTask);
 }
 
-boot(GOODS.thinks, 'type', 'socks');
+boot(GOODS, 'type', 'socks');

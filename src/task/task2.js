@@ -18,4 +18,4 @@ const getMaxPrice = (arr) => {
     return itemWithMaxPrice;
 };
 
-module.exports = getMaxPrice(goods.thinks);
+module.exports = getMaxPrice(goods);
