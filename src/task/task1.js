@@ -1,9 +1,3 @@
-const filterArray = (arr, key, value) => {
-    const newArr = arr.filter((item) => {
-        return item[key] === value;
-    });
-
-    return newArr;
-};
+const filterArray = (arr, key, value) => arr.filter((item) => item[key] === value);
 
 module.exports.filterArray = filterArray;
