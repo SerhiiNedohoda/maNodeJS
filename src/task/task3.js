@@ -1,10 +1,10 @@
 const modifyArray = (arr) => {
     const result = arr.map((item) => {
-        if (!('quantity' in item)) {
+        if (!item.quantity) {
             item.quantity = 0;
         }
 
-        if (!('price' in item) && 'priceForPair' in item) {
+        if (!item.price) {
             item.price = item.priceForPair;
             delete item.priceForPair;
         }
@@ -13,4 +13,4 @@ const modifyArray = (arr) => {
     return result;
 };
 
-module.exports.modifyArray = modifyArray;
+module.exports = modifyArray;

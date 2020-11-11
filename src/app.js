@@ -8,7 +8,7 @@ function boot(arr, key, value) {
     const resultFirstTask = firstTask(arr, key, value);
 
     console.log(resultFirstTask);
-    console.log(tasks.task3.modifyArray(resultFirstTask));
+    console.log(tasks.task3(resultFirstTask));
     console.log(secondTask);
 }
 
