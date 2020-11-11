@@ -1,18 +1,16 @@
 const goods = require('../../goods.json');
 
 const getMaxPrice = (arr) => {
-    let maxPrice = 0;
-    let totalPrice = 0;
-    let price = 0;
-    let itemWithMaxPrice = '';
+    let itemWithMaxPrice;
 
     arr.forEach((item) => {
-        price = +(item.price || item.priceForPair).slice(1);
-        totalPrice = price * (item.quantity || 0);
+        let maxPrice = 0;
+        const price = +(item.price || item.priceForPair).slice(1);
+        const totalPrice = price * (item.quantity || 0);
 
         if (maxPrice < totalPrice) {
             maxPrice = totalPrice;
-            itemWithMaxPrice = `${item.quantity} items of "${item.color} ${item.type}" has the max price: ${maxPrice}`;
+            itemWithMaxPrice = item;
         }
     });
     return itemWithMaxPrice;
