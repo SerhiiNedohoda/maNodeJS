@@ -1,15 +1,12 @@
-const { tasks } = require('./task');
+const { task1: firstTask, task2: secondTask, task3 } = require('./task');
 const GOODS = require('../goods.json');
 
-const firstTask = tasks.task1;
-const secondTask = tasks.task2;
-
 function boot(arr, key, value) {
-    const resultFirstTask = firstTask.filterArray(arr, key, value);
+    const resultFirstTask = firstTask(arr, key, value);
 
     console.log(resultFirstTask);
-    console.log(tasks.task3.modifyArray(resultFirstTask));
+    console.log(task3(resultFirstTask));
     console.log(secondTask);
 }
 
-boot(GOODS.thinks, 'type', 'socks');
+boot(GOODS, 'type', 'socks');
