@@ -2,9 +2,9 @@ const goods = require('../../goods.json');
 
 const getMaxPrice = (arr) => {
     let itemWithMaxPrice;
+    let maxPrice = 0;
 
     arr.forEach((item) => {
-        let maxPrice = 0;
         const price = +(item.price || item.priceForPair).slice(1);
         const totalPrice = price * (item.quantity || 0);
 
