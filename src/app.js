@@ -1,13 +1,11 @@
-const { tasks } = require('./task');
-const firstTask = require('./task').tasks.task1;
-const secondTask = require('./task').tasks.task2;
+const { task1: firstTask, task2: secondTask, task3 } = require('./task');
 const GOODS = require('../goods.json');
 
 function boot(arr, key, value) {
     const resultFirstTask = firstTask(arr, key, value);
 
     console.log(resultFirstTask);
-    console.log(tasks.task3(resultFirstTask));
+    console.log(task3(resultFirstTask));
     console.log(secondTask);
 }
 
