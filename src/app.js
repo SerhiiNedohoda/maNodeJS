@@ -6,7 +6,7 @@ console.log(`${process.env.ORIGIN}:${process.env.PORT}`);
 const requestHandler = (request, response) => {
     console.log('call Handler')
     if (request.url === '/ping') {
-        console.log(`Request url is: ${request.url}`);        
+        console.log(`Request url is: ${request.url}`);
     }
     response.end('pong')
 }
