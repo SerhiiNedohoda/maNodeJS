@@ -7,12 +7,9 @@ module.exports = (request, response) => {
         parsedUrl : { pathname },
         method,
         queryParams,
-        body: data
+        body: data,
+        source
     } = request;
-
-    console.log(pathname);
-    console.log(url);
-    console.log(queryParams.test);
 
     if (method === 'GET' && pathname === '/') return home(response);
     if (method === 'GET' && pathname === '/ping') return ping(response);
@@ -20,21 +17,20 @@ module.exports = (request, response) => {
         return controllers.comment(data, response, queryParams);
 
     if (method === 'GET' && pathname === '/task1')
-        return controllers.firstTask(response, queryParams);
+        return controllers.firstTask(source, response, queryParams);
 
     if (method === 'GET' && pathname === '/task2')
         return controllers.secondTask(response);
 
     if (method === 'GET' && pathname === '/task3')
-        return controllers.thirdTask(response);
+        return controllers.thirdTask(source, response);
 
+    if (method === 'POST' && pathname === '/add-goods')
+        return controllers.newGoods(data, response)
     else notFound(request, response);
 }
 
-function notFound(req, res) {
-    console.log(`${req.url}`);
-    console.log(req.body);
-    console.log(req.queryParams);
+function notFound(res) {
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = 404;
     res.write('Not found');

@@ -1,5 +1,5 @@
 const { task1, task2, task3 } = require('./task/index');
-const GOODS = require('../goods.json');
+// const GOODS = require('../goods.json');
 
 function home(response) {
     response.write('Home');
@@ -18,10 +18,10 @@ function comment(data, response, queryParams) {
     response.end();
 }
 
-function firstTask(response, queryParams) {
+function firstTask(source, response, queryParams) {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write(JSON.stringify(task1(GOODS, queryParams.key, queryParams.vallue)));
+    response.write(JSON.stringify(task1(source, queryParams.key, queryParams.vallue)));
     response.end();
 }
 
@@ -32,10 +32,18 @@ function secondTask(response) {
     response.end();
 }
 
-function thirdTask(response) {
+function thirdTask(source, response) {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write(JSON.stringify(task3(GOODS)));
+    response.write(JSON.stringify(task3(source)));
+    response.end();
+}
+
+function newGoods(data, response) {
+    store = data.newGoods;
+    response.setHeader('Content-Type', 'application/json');
+    response.statusCode = 201;
+    response.write(JSON.stringify({ "status": "New goods added!"}));
     response.end();
 }
 
@@ -45,5 +53,6 @@ module.exports = {
     comment,
     firstTask,
     secondTask,
-    thirdTask
+    thirdTask,
+    newGoods
 }

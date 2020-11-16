@@ -19,3 +19,12 @@ GET http://localhost:3000/task2
 
 ####
 GET http://localhost:3000/task3
+
+####
+POST http://localhost:3000/add-goods
+
+{
+    "newGoods": [
+                {"type": "socks", "color": "red", "quantity": 10, "priceForPair": "$3"}
+    ]
+}
