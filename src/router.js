@@ -13,6 +13,13 @@ module.exports = (request, response) => {
     if (method === 'GET' && url === '/ping') return ping(response);
     if (method === 'POST' && url === '/comment')
         return controllers.comment(data, response, queryParams);
+
+    if (method === 'GET' && url === '/task1')
+        return controllers.firstTask(response);
+
+    if (method === 'GET' && url === '/task2')
+        return controllers.secondTask(response);
+        
     else notFound(response);
 }
 

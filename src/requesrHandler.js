@@ -4,6 +4,7 @@ const router = require('./router');
 
 module.exports = async (request, response) => {
     try {
+        console.log('invoke handler')
         const { url, method } = request;
         const parsedUrl = new URL(url, process.env.ORIGIN);
         const queryParams = parseQuery(parsedUrl.search.substr(1));

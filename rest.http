@@ -9,3 +9,6 @@ POST http://localhost:3000/comment?test=hi
 {
     "json": "body"
 }
+
+####
+GET http://localhost:3000/task1

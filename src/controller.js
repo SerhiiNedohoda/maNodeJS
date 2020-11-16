@@ -1,12 +1,15 @@
+const { task1, task2, task3 } = require('./task/index');
+const GOODS = require('../goods.json');
+
 function home(response) {
     response.write('Home');
     response.end();
 }
 
 function ping(response) {
-    response.write('pong');
-    response.statusCode = 200;
     response.setHeader('Content-Type', 'application/json')
+    response.statusCode = 200;
+    response.write(JSON.stringify({ "result": "pong"}));
     response.end();
 }
 
@@ -15,13 +18,24 @@ function comment(data, response, queryParams) {
     response.end();
 }
 
-function task1() {
+function firstTask(response) {
+    response.setHeader('Content-Type', 'application/json');
+    response.statusCode = 200;
+    response.write(JSON.stringify(task1(GOODS)));
+    response.end();
+}
 
+function secondTask(response) {
+    response.setHeader('Content-Type', 'application/json');
+    response.statusCode = 200;
+    response.write(JSON.stringify(task2));
+    response.end();
 }
 
 module.exports = {
     home,
     ping,
     comment,
-    task1
+    firstTask,
+    secondTask
 }
