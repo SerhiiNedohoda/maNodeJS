@@ -3,3 +3,9 @@ GET http://localhost:3000/ping
 
 ####
 GET http://localhost:3000/
+
+####
+POST http://localhost:3000/comment?test=hi
+{
+    "json": "body"
+}
