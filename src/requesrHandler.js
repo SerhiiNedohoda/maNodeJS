@@ -24,7 +24,7 @@ module.exports = async (request, response) => {
             router({
                 ...request,
                 body: body ? JSON.parse(body) : {},
-                url,
+                parsedUrl,
                 queryParams
             }, response);
         });

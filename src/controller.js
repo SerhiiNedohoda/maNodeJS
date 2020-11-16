@@ -18,10 +18,10 @@ function comment(data, response, queryParams) {
     response.end();
 }
 
-function firstTask(response) {
+function firstTask(response, queryParams) {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write(JSON.stringify(task1(GOODS, 'type', 'socks')));
+    response.write(JSON.stringify(task1(GOODS, queryParams.key, queryParams.vallue)));
     response.end();
 }
 
@@ -35,7 +35,7 @@ function secondTask(response) {
 function thirdTask(response) {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write(JSON.stringify(task3(task1(GOODS, 'type', 'socks'))));
+    response.write(JSON.stringify(task3(GOODS)));
     response.end();
 }
 
