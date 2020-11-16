@@ -12,3 +12,9 @@ POST http://localhost:3000/comment?test=hi
 
 ####
 GET http://localhost:3000/task1
+
+####
+GET http://localhost:3000/task2
+
+####
+GET http://localhost:3000/task3

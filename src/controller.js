@@ -21,7 +21,7 @@ function comment(data, response, queryParams) {
 function firstTask(response) {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write(JSON.stringify(task1(GOODS)));
+    response.write(JSON.stringify(task1(GOODS, 'type', 'socks')));
     response.end();
 }
 
@@ -32,10 +32,18 @@ function secondTask(response) {
     response.end();
 }
 
+function thirdTask(response) {
+    response.setHeader('Content-Type', 'application/json');
+    response.statusCode = 200;
+    response.write(JSON.stringify(task3(task1(GOODS, 'type', 'socks'))));
+    response.end();
+}
+
 module.exports = {
     home,
     ping,
     comment,
     firstTask,
-    secondTask
+    secondTask,
+    thirdTask
 }

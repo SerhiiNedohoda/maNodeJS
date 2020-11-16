@@ -19,7 +19,10 @@ module.exports = (request, response) => {
 
     if (method === 'GET' && url === '/task2')
         return controllers.secondTask(response);
-        
+
+    if (method === 'GET' && url === '/task3')
+        return controllers.thirdTask(response);
+
     else notFound(response);
 }
 
