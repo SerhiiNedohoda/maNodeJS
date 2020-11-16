@@ -28,3 +28,10 @@ POST http://localhost:3000/add-goods
                 {"type": "socks", "color": "red", "quantity": 10, "priceForPair": "$3"}
     ]
 }
+
+####
+POST http://localhost:3000/source
+
+{
+    "source": "JSON"
+}

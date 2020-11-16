@@ -4,12 +4,17 @@ const router = require('./router');
 const GOODS = require('../goods.json');
 global.store = [];
 
+function sourceCheck(source) {
+    let resultArray;
+    if (source === 'JSON' && store.length >= 1) resultArray = store; else resultArray = GOODS
+
+    return resultArray
+}
+
 module.exports = async (request, response) => {
     try {
-        let source;
-        if (store.length >= 1)  source = store; else source = GOODS
+        let checkingGoods = sourceCheck(source);
 
-        console.log('invoke handler')
         const { url, method } = request;
         const parsedUrl = new URL(url, process.env.ORIGIN);
         const queryParams = parseQuery(parsedUrl.search.substr(1));
@@ -31,7 +36,7 @@ module.exports = async (request, response) => {
                 body: body ? JSON.parse(body) : {},
                 parsedUrl,
                 queryParams,
-                source
+                checkingGoods
             }, response);
         });
     } catch (error) {
