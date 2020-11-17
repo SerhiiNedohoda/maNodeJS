@@ -2,16 +2,6 @@
 GET http://localhost:3000/ping
 
 ####
-GET http://localhost:3000/
-
-####
-POST http://localhost:3000/comment?test=hi
-
-{
-    "json": "body"
-}
-
-####
 GET http://localhost:3000/task1?key=type&vallue=socks
 
 ####

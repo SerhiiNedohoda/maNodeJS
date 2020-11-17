@@ -2,20 +2,10 @@ const { task1, task2, task3 } = require('./task/index');
 
 global.source = '';
 
-function home(response) {
-    response.write('Home');
-    response.end();
-}
-
 function ping(response) {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
     response.write(JSON.stringify({ result: 'pong' }));
-    response.end();
-}
-
-function comment(data, response, queryParams) {
-    response.write(JSON.stringify(data));
     response.end();
 }
 
@@ -57,9 +47,7 @@ function addSource(data, response) {
 }
 
 module.exports = {
-    home,
     ping,
-    comment,
     firstTask,
     secondTask,
     thirdTask,
