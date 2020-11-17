@@ -2,7 +2,7 @@
 GET http://localhost:3000/ping
 
 ####
-GET http://localhost:3000/task1?key=type&vallue=socks
+GET http://localhost:3000/task1?key=type&value=socks
 
 ####
 GET http://localhost:3000/task2

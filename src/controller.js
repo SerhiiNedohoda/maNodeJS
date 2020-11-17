@@ -12,7 +12,7 @@ function ping(response) {
 function firstTask(checkingGoods, response, queryParams) {
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write(JSON.stringify(task1(checkingGoods, queryParams.key, queryParams.vallue)));
+    response.write(JSON.stringify(task1(checkingGoods, queryParams.key, queryParams.value)));
     response.end();
 }
 

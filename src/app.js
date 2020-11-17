@@ -1,7 +1,7 @@
 require('dotenv').config();
 const http = require('http');
-const requesrHandler = require('./requesrHandler');
+const requestHandler = require('./requestHandler');
 
-const server = http.createServer(requesrHandler);
+const server = http.createServer(requestHandler);
 
 server.listen(Number(process.env.PORT || 3000));
