@@ -2,18 +2,20 @@ const { parse: parseQuery } = require('querystring');
 const { URL } = require('url');
 const router = require('./router');
 const GOODS = require('../goods.json');
+
 global.store = [];
 
 function sourceCheck(source) {
     let resultArray;
-    if (source === 'JSON' && store.length >= 1) resultArray = store; else resultArray = GOODS
+    if (source === 'JSON' && store.length >= 1) resultArray = store;
+    else resultArray = GOODS;
 
-    return resultArray
+    return resultArray;
 }
 
 module.exports = async (request, response) => {
     try {
-        let checkingGoods = sourceCheck(source);
+        const checkingGoods = sourceCheck(source);
 
         const { url, method } = request;
         const parsedUrl = new URL(url, process.env.ORIGIN);
@@ -22,24 +24,27 @@ module.exports = async (request, response) => {
         let body = [];
 
         request
-        .on('error', err => {
-            console.error(err);
-        })
-        .on('data', chunk => {
-            body.push(chunk);
-        })
-        .on('end', () => {
-            body = Buffer.concat(body).toString();
+            .on('error', (err) => {
+                console.error(err);
+            })
+            .on('data', (chunk) => {
+                body.push(chunk);
+            })
+            .on('end', () => {
+                body = Buffer.concat(body).toString();
 
-            router({
-                ...request,
-                body: body ? JSON.parse(body) : {},
-                parsedUrl,
-                queryParams,
-                checkingGoods
-            }, response);
-        });
+                router(
+                    {
+                        ...request,
+                        body: body ? JSON.parse(body) : {},
+                        parsedUrl,
+                        queryParams,
+                        checkingGoods,
+                    },
+                    response,
+                );
+            });
     } catch (error) {
         console.error(error);
     }
-}
+};

@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/SerhiiNedohoda/maNodeJS#readme",
   "dependencies": {
-    "dev": "^0.1.3",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {

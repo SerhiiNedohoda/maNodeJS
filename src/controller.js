@@ -1,4 +1,5 @@
 const { task1, task2, task3 } = require('./task/index');
+
 global.source = '';
 
 function home(response) {
@@ -7,9 +8,9 @@ function home(response) {
 }
 
 function ping(response) {
-    response.setHeader('Content-Type', 'application/json')
+    response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write(JSON.stringify({ "result": "pong"}));
+    response.write(JSON.stringify({ result: 'pong' }));
     response.end();
 }
 
@@ -43,7 +44,7 @@ function newGoods(data, response) {
     store = data.newGoods;
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 201;
-    response.write(JSON.stringify({ "status": "New goods added!"}));
+    response.write(JSON.stringify({ status: 'New goods added!' }));
     response.end();
 }
 
@@ -51,7 +52,7 @@ function addSource(data, response) {
     source = data.source;
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 201;
-    response.write(JSON.stringify({ "status": "Source added!"}));
+    response.write(JSON.stringify({ status: 'Source added!' }));
     response.end();
 }
 
@@ -63,5 +64,5 @@ module.exports = {
     secondTask,
     thirdTask,
     newGoods,
-    addSource
-}
+    addSource,
+};
