@@ -7,17 +7,17 @@ global.store = [];
 
 function sourceCheck(source) {
     let resultArray;
-    if (source === 'JSON' && store.length >= 1) resultArray = store;
+    if (source === 'store' && store.length >= 1) resultArray = store;
     else resultArray = GOODS;
 
     return resultArray;
 }
 
-module.exports = async (request, response) => {
+module.exports = (request, response) => {
     try {
         const checkingGoods = sourceCheck(source);
 
-        const { url, method } = request;
+        const { url } = request;
         const parsedUrl = new URL(url, process.env.ORIGIN);
         const queryParams = parseQuery(parsedUrl.search.substr(1));
 
