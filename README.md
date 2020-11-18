@@ -81,7 +81,7 @@ task3.js Створити функцію, яка прийматиме на вх�
 
 3. Налаштувати Debug + Nodemon (опціонально, це для вашої зручності)
 
-4.Створити HTTP server за прикладом: https://github.com/GavukaAlexandr/Node.js_HTTP_without_frameworks 
+4. Створити HTTP server за прикладом: https://github.com/GavukaAlexandr/Node.js_HTTP_without_frameworks 
 
 5. Підключити сервер до задач з ДЗ №1
 

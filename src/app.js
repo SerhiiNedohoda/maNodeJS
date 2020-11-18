@@ -1,12 +1,7 @@
-const { task1: firstTask, task2: secondTask, task3 } = require('./task');
-const GOODS = require('../goods.json');
+require('dotenv').config();
+const http = require('http');
+const requestHandler = require('./requestHandler');
 
-function boot(arr, key, value) {
-    const resultFirstTask = firstTask(arr, key, value);
+const server = http.createServer(requestHandler);
 
-    console.log(resultFirstTask);
-    console.log(task3(resultFirstTask));
-    console.log(secondTask);
-}
-
-boot(GOODS, 'type', 'socks');
+server.listen(Number(process.env.PORT || 3000));
