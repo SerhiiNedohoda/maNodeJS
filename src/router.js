@@ -17,15 +17,23 @@ module.exports = (request, response) => {
         checkingGoods,
     } = request;
 
-    if (method === 'GET' && pathname === '/ping') return ping(response);
+    switch (method && pathname) {
+        case 'GET' && '/ping':
+            return ping(response);
 
-    if (method === 'GET' && pathname === '/task1')
-        return controllers.firstTask(checkingGoods, response, queryParams);
+        case 'GET' && '/task1':
+            return controllers.firstTask(checkingGoods, response, queryParams);
 
-    if (method === 'GET' && pathname === '/task2') return controllers.secondTask(response);
+        case 'GET' && '/task2':
+            return controllers.secondTask(response);
 
-    if (method === 'GET' && pathname === '/task3')
-        return controllers.thirdTask(checkingGoods, response);
+        case 'GET' && '/task3':
+            return controllers.thirdTask(checkingGoods, response);
+
+        default:
+            notFound(request, response);
+            break;
+    }
 
     if (method === 'POST' && pathname === '/add-goods') return controllers.newGoods(data, response);
 
