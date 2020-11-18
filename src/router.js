@@ -30,13 +30,13 @@ module.exports = (request, response) => {
         case 'GET' && '/task3':
             return controllers.thirdTask(checkingGoods, response);
 
+        case 'POST' && '/add-goods':
+            return controllers.newGoods(data, response);
+
+        case 'POST' && '/source':
+            return controllers.addSource(data, response);
+
         default:
-            notFound(request, response);
-            break;
+            return notFound(response);
     }
-
-    if (method === 'POST' && pathname === '/add-goods') return controllers.newGoods(data, response);
-
-    if (method === 'POST' && pathname === '/source') return controllers.addSource(data, response);
-    return notFound(request, response);
 };
