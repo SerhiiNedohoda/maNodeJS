@@ -1,4 +1,3 @@
-const { ping } = require('./controller');
 const controllers = require('./controller');
 
 function notFound(res) {
@@ -20,7 +19,7 @@ module.exports = (request, response) => {
     if (method === 'GET') {
         switch (pathname) {
             case '/ping':
-                return ping(response);
+                return controllers.ping(response);
 
             case '/task1':
                 return controllers.firstTask(checkingGoods, response, queryParams);
