@@ -23,5 +23,5 @@ POST http://localhost:3000/add-goods
 POST http://localhost:3000/source
 
 {
-    "source": "store"
+    "source": "JSON"
 }

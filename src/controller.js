@@ -31,19 +31,37 @@ function thirdTask(checkingGoods, response) {
 }
 
 function newGoods(data, response) {
-    store = data.newGoods;
-    response.setHeader('Content-Type', 'application/json');
-    response.statusCode = 201;
-    response.write(JSON.stringify({ status: 'New goods added!' }));
-    response.end();
+    if (data.newGoods) {
+        store = data.newGoods;
+        response.setHeader('Content-Type', 'application/json');
+        response.statusCode = 201;
+        response.write(JSON.stringify({ status: 'New goods added!' }));
+        response.end();
+    } else {
+        response.setHeader('Content-Type', 'application/json');
+        response.statusCode = 400;
+        response.write(
+            JSON.stringify({ status: 'No key "newGoods" in request body, or body is empty!' }),
+        );
+        response.end();
+    }
 }
 
 function addSource(data, response) {
-    source = data.source;
-    response.setHeader('Content-Type', 'application/json');
-    response.statusCode = 201;
-    response.write(JSON.stringify({ status: 'Source added!' }));
-    response.end();
+    if (data.source) {
+        source = data.source;
+        response.setHeader('Content-Type', 'application/json');
+        response.statusCode = 201;
+        response.write(JSON.stringify({ status: 'Source added!' }));
+        response.end();
+    } else {
+        response.setHeader('Content-Type', 'application/json');
+        response.statusCode = 400;
+        response.write(
+            JSON.stringify({ status: 'No key "source" in request body, or body is empty!' }),
+        );
+        response.end();
+    }
 }
 
 module.exports = {
