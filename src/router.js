@@ -13,7 +13,6 @@ module.exports = (request, response) => {
         method,
         queryParams,
         body: data,
-        checkingGoods,
     } = request;
 
     if (method === 'GET') {
@@ -22,13 +21,13 @@ module.exports = (request, response) => {
                 return controllers.ping(response);
 
             case '/task1':
-                return controllers.firstTask(checkingGoods, response, queryParams);
+                return controllers.firstTask(response, queryParams);
 
             case '/task2':
                 return controllers.secondTask(response);
 
             case '/task3':
-                return controllers.thirdTask(checkingGoods, response);
+                return controllers.thirdTask(response);
 
             default:
                 break;
