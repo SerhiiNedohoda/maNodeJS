@@ -6,11 +6,8 @@ const GOODS = require('../goods.json');
 global.store = [];
 
 function sourceCheck(source) {
-    let resultArray;
-    if (source === 'store' && store.length >= 1) resultArray = store;
-    else resultArray = GOODS;
-
-    return resultArray;
+    if (source === 'store' && store.length >= 1) return store;
+    return GOODS;
 }
 
 module.exports = (request, response) => {
