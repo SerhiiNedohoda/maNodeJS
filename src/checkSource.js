@@ -1,21 +1,20 @@
 const GOODS = require('../goods.json');
-const modifyArray = require('./task/task3');
 
 module.exports = function sourceCheck(source, store) {
     if (source === 'store' && store.length >= 1) return store;
     return GOODS;
 };
 
-function customMap(array, callback) {
-    const modifiedArr = [];
-    for (let i = 0; i < array.length; i += 1) {
-        const element = array[i];
-        modifiedArr.push(callback(element));
-    }
-    return modifiedArr;
-}
+// eslint-disable-next-line no-extend-native
+Array.prototype.myMap = (callback) => {
+    const modifiedArr2 = [];
 
-const resultArray = customMap(GOODS, (param) => {
+    for (let i = 0; i < this.length; i += 1) modifiedArr2.push(callback(this[i]));
+
+    return modifiedArr2;
+};
+
+const resultArray = GOODS.myMap((param) => {
     if (!param.quantity) {
         param.quantity = 0;
     }
