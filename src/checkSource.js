@@ -1,4 +1,3 @@
-/* eslint-disable no-extend-native */
 /* eslint-disable consistent-return */
 require('dotenv').config();
 const GOODS = require('../goods.json');
@@ -7,28 +6,6 @@ module.exports = function sourceCheck(source, store) {
     if (source === 'store' && store.length >= 1) return store;
     return GOODS;
 };
-
-Array.prototype.myMap = function (callback) {
-    const modifiedArr = [];
-
-    for (let i = 0; i < this.length; i += 1) modifiedArr.push(callback(this[i]));
-
-    return modifiedArr;
-};
-
-const resultArray = GOODS.myMap((param) => {
-    if (!param.quantity) {
-        param.quantity = 0;
-    }
-
-    if (!param.price) {
-        param.price = param.priceForPair;
-        delete param.priceForPair;
-    }
-    return param;
-});
-
-console.log(resultArray);
 
 // Створити функцію з колбеком для генерування знижки, яка поверне свій результат в колбек через 50мс.
 // Згенерувати знижку випадковим чином в діапазоні від 1 до 99%. Оскільки магазин не може собі дозволити
