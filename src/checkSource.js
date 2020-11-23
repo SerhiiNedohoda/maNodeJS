@@ -36,32 +36,52 @@ console.log(resultArray);
 // інакше поверне значення знижки. Створити обгортки над функцією з колбеком для полегшення роботи з
 // асинхронними функціями. Обгортки мають бути реалізовані двома способами.
 
-// function getDiscount(callback) {
-//     let random = 0;
-//     do {
-//         random = callback(1, 100);
-//     } while (random >= process.env.MAX_DISCOUNT);
-//     return random;
-// }
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
-function discount(callback) {
-    const min = Math.ceil(1);
-    const max = Math.floor(100);
-    const res = Math.floor(Math.random() * (max - min)) + min;
-    if (res >= 20) {
-        callback(new Error('Discount is too big'));
-        return;
-    }
-    return callback(null, res);
+function discountCallback(callback) {
+    setTimeout(() => {
+        const randomInt = getRandomInt(0, 100);
+        // change MAX_DISCOUNT = 20
+        if (randomInt >= process.env.MAX_DISCOUNT) {
+            callback(new Error('Discount is too big'));
+            return;
+        }
+        return callback(null, randomInt);
+    }, 50);
 }
 
 const callback = (error, result) => {
     if (error !== null) {
-        console.log(`Get error: ${error}`);
+        console.log(error.message);
         return;
     }
     console.log(`Your discount: ${result}`);
     return result;
 };
 
-discount(callback);
+discountCallback(callback);
+
+// +++++++++++++++++++++++Promise+++++++++++++++++
+
+function discountPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const randomInt = getRandomInt(0, 100);
+            // change MAX_DISCOUNT = 20
+            if (randomInt < process.env.MAX_DISCOUNT) resolve(randomInt);
+            else reject(new Error('Discount it too big'));
+        }, 50);
+    });
+}
+
+discountPromise()
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log(err.message);
+    });
