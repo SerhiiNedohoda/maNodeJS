@@ -69,12 +69,10 @@ discountCallback(callback);
 
 function discountPromise() {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const randomInt = getRandomInt(0, 100);
-            // change MAX_DISCOUNT = 20
-            if (randomInt < process.env.MAX_DISCOUNT) resolve(randomInt);
-            else reject(new Error('Discount it too big'));
-        }, 50);
+        discountCallback((err, res) => {
+            if (err) reject(err);
+            else resolve(res);
+        });
     });
 }
 
