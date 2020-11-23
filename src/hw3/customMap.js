@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable no-extend-native */
 const GOODS = require('../../goods.json');
 
