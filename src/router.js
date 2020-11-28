@@ -29,6 +29,9 @@ module.exports = (request, response) => {
             case '/task3':
                 return controllers.thirdTask(response);
 
+            case '/getDiscount':
+                return controllers.thirdTask(response);
+
             default:
                 break;
         }

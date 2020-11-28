@@ -1,7 +1,5 @@
-require('../hw3/customMap');
-
 const modifyArray = (arr) => {
-    const result = arr.myMap((item) => {
+    const result = arr.map((item) => {
         if (!item.quantity) {
             item.quantity = 0;
         }

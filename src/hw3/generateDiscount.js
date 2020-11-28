@@ -17,7 +17,7 @@ function getRandomInt(min, max) {
 
 function discount(callback) {
     setTimeout(() => {
-        const randomInt = getRandomInt(0, 100);
+        const randomInt = getRandomInt(1, 100);
         // change MAX_DISCOUNT = 20
         if (randomInt >= process.env.MAX_DISCOUNT) {
             callback(new Error('Discount is too big'));
@@ -37,7 +37,7 @@ const callback = (error, result) => {
     return result;
 };
 
-discount(callback);
+// discount(callback);
 
 // +++++++++++++++++++++++Promise+++++++++++++++++
 
@@ -50,22 +50,29 @@ function discountPromise() {
     });
 }
 
-discountPromise()
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err) => {
-        console.log(err.message);
-    });
+// Invoke discount with promise
+// discountPromise()
+//     .then((res) => {
+//         console.log(res);
+//     })
+//     .catch((err) => {
+//         console.log(err.message);
+//     });
 
 // // +++++++++++++++++++++++Promisify+++++++++++++++++
 
 const discountPromisify = util.promisify(discount);
 
-discountPromisify()
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err) => {
-        console.log(err.message);
-    });
+module.exports = {
+    discountPromise,
+    discountPromisify,
+};
+
+// Invoke discount with promisify
+// discountPromisify()
+//     .then((res) => {
+//         console.log(res);
+//     })
+//     .catch((err) => {
+//         console.log(err.message);
+//     });

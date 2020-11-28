@@ -34,6 +34,13 @@ function thirdTask(response) {
     response.end();
 }
 
+function getDiscount(response) {
+    response.setHeader('Content-Type', 'application/json');
+    response.statusCode = 200;
+    response.write();
+    response.end();
+}
+
 function newGoods(data, response) {
     if (data.newGoods) {
         store = data.newGoods;
@@ -73,6 +80,7 @@ module.exports = {
     firstTask,
     secondTask,
     thirdTask,
+    getDiscount,
     newGoods,
     addSource,
 };
