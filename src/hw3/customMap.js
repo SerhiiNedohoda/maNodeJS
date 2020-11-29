@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
 /* eslint-disable no-extend-native */
-const GOODS = require('../../goods.json');
+// const GOODS = require('../../goods.json');
 
 Array.prototype.myMap = function (callback) {
     const modifiedArr = [];
@@ -11,16 +11,16 @@ Array.prototype.myMap = function (callback) {
 };
 
 // Example of using
-const resultArray = GOODS.myMap((param) => {
-    if (!param.quantity) {
-        param.quantity = 0;
-    }
+// const resultArray = GOODS.myMap((param) => {
+//     if (!param.quantity) {
+//         param.quantity = 0;
+//     }
 
-    if (!param.price) {
-        param.price = param.priceForPair;
-        delete param.priceForPair;
-    }
-    return param;
-});
+//     if (!param.price) {
+//         param.price = param.priceForPair;
+//         delete param.priceForPair;
+//     }
+//     return param;
+// });
 
-console.log(resultArray);
+// console.log(resultArray);

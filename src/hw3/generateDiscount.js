@@ -28,14 +28,14 @@ function discount(callback) {
 }
 
 // Invoke discount with callback
-const callback = (error, result) => {
-    if (error !== null) {
-        console.log(error.message);
-        return;
-    }
-    console.log(`Your discount: ${result}`);
-    return result;
-};
+// const callback = (error, result) => {
+//     if (error !== null) {
+//         console.log(error.message);
+//         return;
+//     }
+//     console.log(`Your discount: ${result}`);
+//     return result;
+// };
 
 // discount(callback);
 
@@ -64,6 +64,7 @@ function discountPromise() {
 const discountPromisify = util.promisify(discount);
 
 module.exports = {
+    discount,
     discountPromise,
     discountPromisify,
 };
