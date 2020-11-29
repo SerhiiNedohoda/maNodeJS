@@ -30,7 +30,7 @@ module.exports = (request, response) => {
                 return controllers.thirdTask(response);
 
             case '/getDiscount':
-                return controllers.thirdTask(response);
+                return controllers.getDiscount(response);
 
             default:
                 break;

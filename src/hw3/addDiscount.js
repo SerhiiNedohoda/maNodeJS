@@ -1,46 +1,14 @@
 require('./customMap');
-const { discountPromise, discountPromisify } = require('./generateDiscount');
-const GOODS = require('../../goods.json');
+const { discount } = require('./generateDiscount');
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function discount(callback) {
-    setTimeout(() => {
-        const randomInt = getRandomInt(1, 100);
-        // change MAX_DISCOUNT = 20
-        if (randomInt >= process.env.MAX_DISCOUNT) {
-            return callback(new Error('Discount is too big'));
-        }
-        return callback(null, randomInt);
-    }, 50);
-}
-
-function getPromiseDiscount(retry, discounts) {
+function getPromiseDiscount() {
     return new Promise((resolve, reject) => {
-        let retryRemains = retry;
         discount((err, res) => {
             if (err) {
-                // console.log(err.message);
-                return getPromiseDiscount(retryRemains, discounts).then((value) => {
+                return getPromiseDiscount().then((value) => {
                     resolve(value);
                 });
             }
-            console.log(`before retryRemains ${discounts}`);
-            if (retryRemains > 1) {
-                retryRemains -= 1;
-                console.log(`retry ${retryRemains}`);
-                return getPromiseDiscount(retryRemains, discounts).then((value) => {
-                    console.log(`before push ${discounts}`);
-                    console.log(`after push ${discounts}`);
-                    resolve(value);
-                });
-            }
-            discounts.push(res);
-            console.log(discounts);
 
             return resolve(res);
         });
@@ -61,7 +29,7 @@ function addDiscount(items) {
                 return newItem;
             })
             .catch((err) => {
-                console.log(err.message);
+                console.error(err.message);
             });
     });
     return modifiedItems;
@@ -93,7 +61,7 @@ async function startGoods(arr) {
             newItems[index].discount = customizeDiscount(interimArr);
         } else newItems[index].discount = `${newItems[index].discount}%`;
     }
-    console.log(newItems);
+    return newItems;
 }
 
-startGoods(GOODS);
+module.exports = startGoods;

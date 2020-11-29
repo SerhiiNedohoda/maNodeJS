@@ -1,5 +1,6 @@
 const { task1, task2, task3 } = require('./task/index');
 const sourceCheck = require('./checkSource');
+const getGoodsWithDiscounts = require('./hw3/addDiscount');
 
 let source = '';
 let store = [];
@@ -34,10 +35,11 @@ function thirdTask(response) {
     response.end();
 }
 
-function getDiscount(response) {
+async function getDiscount(response) {
+    const result = await getGoodsWithDiscounts(sourceCheck(source, store));
     response.setHeader('Content-Type', 'application/json');
     response.statusCode = 200;
-    response.write();
+    response.write(JSON.stringify(result));
     response.end();
 }
 

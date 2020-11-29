@@ -11,6 +11,9 @@ GET http://localhost:3000/task2
 GET http://localhost:3000/task3
 
 ####
+GET http://localhost:3000/getDiscount
+
+####
 POST http://localhost:3000/add-goods
 
 {
